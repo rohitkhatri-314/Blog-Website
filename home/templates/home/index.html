@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}My Blog{% endblock title %}
+
+{% block css_file %} 
+<link rel="stylesheet" href="{%static "home/index.css"%}">
+<link rel="stylesheet" href="{%static "home/post.css"%}">
+{% endblock css_file %}
+
+{% block content %}
+    
+
+    <h1>Welome to my Blog</h1>
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "home/images/me.jpg" %}" alt="Rohit - Author of this Blog!"/>
+            <h2>Rohit's Blog</h2>
+        </header>
+        <p>Hi, Welcome to my blog I am Rohit Khatri CSE undergrad from IIT Jammu</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Thoughts/Projects</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "home/includes/post.html" %}
+            {% endfor %}
+        </ul>   
+    </section>
+    
+    <section id="about">
+        <h2>Who am I?</h2>
+        <p>I am a ug student at IIT Jammu, I like videography and problem solving. Currently in my 3rd year in my BTech Cse Program</p>
+    </section>
+{% endblock content %}
